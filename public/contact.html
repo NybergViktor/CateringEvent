@@ -191,7 +191,8 @@
         success.classList.remove('hidden');
         form.reset();
       } catch (err) {
-        errorDiv.textContent = `⚠️ ${err.message}`;
+        console.error('Contact form error:', err);
+        errorDiv.textContent = '⚠️ Something went wrong. Please try again or contact us directly.';
         errorDiv.classList.remove('hidden');
       } finally {
         btn.disabled = false;

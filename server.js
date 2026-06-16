@@ -41,7 +41,7 @@ app.use('/api/events', apiLimiter, require('./routes/events'));
 app.use('/api/contact', contactLimiter, require('./routes/contact'));
 
 // Fallback: serve index.html for any non-API route
-app.get('*', (req, res) => {
+app.get('*', apiLimiter, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

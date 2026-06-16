@@ -88,6 +88,15 @@
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
     async function loadEvents() {
       const loading = document.getElementById('loading');
       const error = document.getElementById('error');
@@ -111,19 +120,19 @@
           const date = new Date(evt.date).toLocaleDateString('en-US', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
           });
-          const img = evt.image || 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=70';
+          const safeImg = /^https?:\/\//.test(evt.image || '') ? escapeHtml(evt.image) : 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=70';
           return `
             <div class="card-hover bg-white rounded-2xl shadow-md overflow-hidden">
-              <img src="${img}" alt="${evt.title}" class="w-full h-48 object-cover"/>
+              <img src="${safeImg}" alt="${escapeHtml(evt.title)}" class="w-full h-48 object-cover"/>
               <div class="p-6">
-                <p class="text-xs uppercase tracking-widest mb-1" style="color:var(--gold)">${date}</p>
-                <h3 class="text-xl font-bold mb-2">${evt.title}</h3>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-3">${evt.description}</p>
+                <p class="text-xs uppercase tracking-widest mb-1" style="color:var(--gold)">${escapeHtml(date)}</p>
+                <h3 class="text-xl font-bold mb-2">${escapeHtml(evt.title)}</h3>
+                <p class="text-gray-500 text-sm mb-4 line-clamp-3">${escapeHtml(evt.description)}</p>
                 <div class="flex items-center justify-between text-sm text-gray-600">
-                  <span>📍 ${evt.location}</span>
-                  <span class="font-semibold" style="color:var(--gold)">$${evt.price}</span>
+                  <span>📍 ${escapeHtml(evt.location)}</span>
+                  <span class="font-semibold" style="color:var(--gold)">$${escapeHtml(String(evt.price))}</span>
                 </div>
-                <div class="mt-3 text-xs text-gray-400">👥 Capacity: ${evt.capacity}</div>
+                <div class="mt-3 text-xs text-gray-400">👥 Capacity: ${escapeHtml(String(evt.capacity))}</div>
               </div>
             </div>`;
         }).join('');

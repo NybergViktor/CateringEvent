@@ -14,8 +14,14 @@ router.post('/', async (req, res) => {
   }
 });
 
-// GET all submissions (admin use)
-router.get('/', async (req, res) => {
+// GET all submissions (admin use — requires API key)
+router.get('/', (req, res, next) => {
+  const apiKey = process.env.ADMIN_API_KEY;
+  if (!apiKey || req.headers['x-api-key'] !== apiKey) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  next();
+}, async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });
     res.json(contacts);
