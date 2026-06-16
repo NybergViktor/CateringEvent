@@ -5,7 +5,8 @@ const Contact = require('../models/Contact');
 // POST contact form submission
 router.post('/', async (req, res) => {
   try {
-    const contact = new Contact(req.body);
+    const { name, email, phone, message, eventDate, guestCount } = req.body;
+    const contact = new Contact({ name, email, phone, message, eventDate, guestCount });
     const saved = await contact.save();
     res.status(201).json({ message: 'Message received! We will be in touch soon.', data: saved });
   } catch (err) {

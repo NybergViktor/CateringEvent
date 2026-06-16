@@ -26,7 +26,8 @@ router.get('/:id', async (req, res) => {
 // POST create event
 router.post('/', async (req, res) => {
   try {
-    const event = new Event(req.body);
+    const { title, description, date, location, capacity, price, image } = req.body;
+    const event = new Event({ title, description, date, location, capacity, price, image });
     const saved = await event.save();
     res.status(201).json(saved);
   } catch (err) {
@@ -37,10 +38,16 @@ router.post('/', async (req, res) => {
 // PUT update event
 router.put('/:id', async (req, res) => {
   try {
-    const event = await Event.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+    const { title, description, date, location, capacity, price, image } = req.body;
+    const update = { title, description, date, location, capacity, price, image };
+    // Remove undefined fields so partial updates work without clearing unset keys
+    Object.keys(update).forEach(k => update[k] === undefined && delete update[k]);
+
+    const event = await Event.findByIdAndUpdate(
+      req.params.id,
+      { $set: update },
+      { new: true, runValidators: true }
+    );
     if (!event) return res.status(404).json({ message: 'Event not found' });
     res.json(event);
   } catch (err) {

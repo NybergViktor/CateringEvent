@@ -38,7 +38,7 @@ html { scroll-behavior: smooth; }
 
 /* Form focus ring */
 .input-field:focus {
-  outline: none;
-  ring: 2px solid var(--gold);
+  outline: 2px solid var(--gold);
+  outline-offset: 0;
   border-color: var(--gold);
 }
