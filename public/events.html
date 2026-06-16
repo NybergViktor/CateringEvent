@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evenemang – Élite Catering | Kommande &amp; Tidigare Evenemang</title>
+  <meta name="description" content="Utforska Élite Caterings kommande och tidigare evenemang. Bröllop, företagsgalor och privatfester med skräddarsydda menyer och professionell service." />
+  <meta name="keywords" content="cateringevenemang, bröllop, företagsmiddag, galakväll, privatfest, evenemangsmat, Sverige" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/events.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sv_SE" />
+  <meta property="og:site_name" content="Élite Catering" />
+  <meta property="og:title" content="Evenemang – Élite Catering | Kommande &amp; Tidigare Evenemang" />
+  <meta property="og:description" content="Bläddra bland Élite Caterings kommande och tidigare evenemang — bröllop, företagsgalor och privatfester." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=80" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Evenemang – Élite Catering | Kommande &amp; Tidigare Evenemang" />
+  <meta name="twitter:description" content="Bläddra bland Élite Caterings kommande och tidigare evenemang — bröllop, företagsgalor och privatfester." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=80" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Evenemang – Élite Catering",
+    "description": "Kommande och tidigare cateringevenemang arrangerade av Élite Catering.",
+    "url": "/events.html",
+    "provider": {
+      "@type": "FoodEstablishment",
+      "name": "Élite Catering",
+      "url": "/"
+    }
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold tracking-tight" style="color:var(--dark)">
+        Élite<span style="color:var(--gold)">Catering</span>
+      </a>
+      <ul class="hidden md:flex gap-8 text-sm font-medium">
+        <li><a href="/" class="nav-link hover:text-yellow-600 pb-1">Hem</a></li>
+        <li><a href="/about.html" class="nav-link hover:text-yellow-600 pb-1">Om oss</a></li>
+        <li><a href="/events.html" class="nav-link active pb-1">Evenemang</a></li>
+        <li><a href="/contact.html" class="nav-link hover:text-yellow-600 pb-1">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn-gold hidden md:inline-block px-5 py-2 rounded-full text-sm font-semibold">Boka nu</a>
+      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Öppna meny">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-6 pb-4">
+      <ul class="flex flex-col gap-3 pt-3 text-sm font-medium">
+        <li><a href="/" class="block hover:text-yellow-600">Hem</a></li>
+        <li><a href="/about.html" class="block hover:text-yellow-600">Om oss</a></li>
+        <li><a href="/events.html" class="block text-yellow-600">Evenemang</a></li>
+        <li><a href="/contact.html" class="block hover:text-yellow-600">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Sidhero -->
+  <section class="pt-28 pb-16 px-6 text-center" style="background:var(--dark);">
+    <p class="uppercase tracking-widest text-sm mb-3" style="color:var(--gold)">Våra evenemang</p>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Kommande &amp; tidigare evenemang</h1>
+    <p class="text-gray-400 max-w-xl mx-auto">Bläddra bland upplevelserna vi skapat — och de som fortfarande väntar.</p>
+  </section>
+
+  <!-- Evenemangsrutnät -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <!-- Laddningstillstånd -->
+      <div id="loading" class="text-center py-16">
+        <div class="inline-block w-10 h-10 border-4 rounded-full animate-spin" style="border-color:var(--gold) transparent var(--gold) transparent"></div>
+        <p class="mt-4 text-gray-400">Laddar evenemang…</p>
+      </div>
+
+      <!-- Feltillstånd -->
+      <div id="error" class="hidden text-center py-16">
+        <p class="text-red-500 text-lg font-medium">⚠️ Det gick inte att ladda evenemang. Försök igen senare.</p>
+      </div>
+
+      <!-- Tomt tillstånd -->
+      <div id="empty" class="hidden text-center py-16">
+        <p class="text-gray-400 text-lg">Inga evenemang hittades. Kom tillbaka snart!</p>
+        <a href="/contact.html" class="btn-gold inline-block mt-6 px-7 py-3 rounded-full font-semibold">Begär ett skräddarsytt evenemang</a>
+      </div>
+
+      <!-- Evenemanglista -->
+      <div id="events-grid" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+  </section>
+
+  <!-- Sidfot -->
+  <footer class="py-10 px-6 text-center text-sm" style="background:var(--dark); color:#aaa;">
+    <p class="mb-2 text-white font-semibold text-lg">Élite<span style="color:var(--gold)">Catering</span></p>
+    <p>© <span id="year"></span> Élite Catering. Alla rättigheter förbehållna.</p>
+    <div class="flex justify-center gap-6 mt-4">
+      <a href="/" class="hover:text-yellow-400">Hem</a>
+      <a href="/about.html" class="hover:text-yellow-400">Om oss</a>
+      <a href="/events.html" class="hover:text-yellow-400">Evenemang</a>
+      <a href="/contact.html" class="hover:text-yellow-400">Kontakt</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    async function loadEvents() {
+      const loading = document.getElementById('loading');
+      const error = document.getElementById('error');
+      const empty = document.getElementById('empty');
+      const grid = document.getElementById('events-grid');
+
+      try {
+        const res = await fetch('/api/events');
+        if (!res.ok) throw new Error('Network response was not ok');
+        const events = await res.json();
+
+        loading.classList.add('hidden');
+
+        if (events.length === 0) {
+          empty.classList.remove('hidden');
+          return;
+        }
+
+        grid.classList.remove('hidden');
+        grid.innerHTML = events.map(evt => {
+          const date = new Date(evt.date).toLocaleDateString('sv-SE', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+          });
+          const safeImg = /^https?:\/\//.test(evt.image || '') ? escapeHtml(evt.image) : 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=70';
+          return `
+            <div class="card-hover bg-white rounded-2xl shadow-md overflow-hidden">
+              <img src="${safeImg}" alt="${escapeHtml(evt.title)}" class="w-full h-48 object-cover"/>
+              <div class="p-6">
+                <p class="text-xs uppercase tracking-widest mb-1" style="color:var(--gold)">${escapeHtml(date)}</p>
+                <h3 class="text-xl font-bold mb-2">${escapeHtml(evt.title)}</h3>
+                <p class="text-gray-500 text-sm mb-4 line-clamp-3">${escapeHtml(evt.description)}</p>
+                <div class="flex items-center justify-between text-sm text-gray-600">
+                  <span>📍 ${escapeHtml(evt.location)}</span>
+                  <span class="font-semibold" style="color:var(--gold)">${escapeHtml(String(evt.price))} kr</span>
+                </div>
+                <div class="mt-3 text-xs text-gray-400">👥 Kapacitet: ${escapeHtml(String(evt.capacity))}</div>
+              </div>
+            </div>`;
+        }).join('');
+      } catch (err) {
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+        console.error('Failed to load events:', err);
+      }
+    }
+
+    loadEvents();
+  </script>
+</body>
+</html>

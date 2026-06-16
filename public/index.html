@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Élite Catering – Professionell Cateringtjänst i Sverige</title>
+  <meta name="description" content="Élite Catering erbjuder premiiumcatering för bröllop, företagsevenemang och privatfester. Över 15 års erfarenhet av kulinarisk excellens och felfri service." />
+  <meta name="keywords" content="catering, cateringtjänst, bröllop catering, företagsevenemang, privatfest, mat evenemang, Sverige" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sv_SE" />
+  <meta property="og:site_name" content="Élite Catering" />
+  <meta property="og:title" content="Élite Catering – Professionell Cateringtjänst i Sverige" />
+  <meta property="og:description" content="Extraordinära evenemang med oförglömliga smaker. Skräddarsydda cateringlösningar för bröllop, företag och privatfester." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Élite Catering – Professionell Cateringtjänst i Sverige" />
+  <meta name="twitter:description" content="Extraordinära evenemang med oförglömliga smaker. Skräddarsydda cateringlösningar för bröllop, företag och privatfester." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Élite Catering",
+    "description": "Professionell cateringtjänst för bröllop, företagsevenemang och privatfester med över 15 års erfarenhet.",
+    "url": "/",
+    "servesCuisine": ["Fransk", "Nordisk", "Internationell"],
+    "priceRange": "$$–$$$",
+    "telephone": "+1-800-555-0199",
+    "email": "hello@elitecatering.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "42 Gourmet Lane",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    },
+    "sameAs": []
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold tracking-tight" style="color:var(--dark)">
+        Élite<span style="color:var(--gold)">Catering</span>
+      </a>
+      <ul class="hidden md:flex gap-8 text-sm font-medium">
+        <li><a href="/" class="nav-link active pb-1">Hem</a></li>
+        <li><a href="/about.html" class="nav-link hover:text-yellow-600 pb-1">Om oss</a></li>
+        <li><a href="/events.html" class="nav-link hover:text-yellow-600 pb-1">Evenemang</a></li>
+        <li><a href="/contact.html" class="nav-link hover:text-yellow-600 pb-1">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn-gold hidden md:inline-block px-5 py-2 rounded-full text-sm font-semibold">Boka nu</a>
+      <!-- Mobilmeny-knapp -->
+      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Öppna meny">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobilmeny -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-6 pb-4">
+      <ul class="flex flex-col gap-3 pt-3 text-sm font-medium">
+        <li><a href="/" class="block text-yellow-600">Hem</a></li>
+        <li><a href="/about.html" class="block hover:text-yellow-600">Om oss</a></li>
+        <li><a href="/events.html" class="block hover:text-yellow-600">Evenemang</a></li>
+        <li><a href="/contact.html" class="block hover:text-yellow-600">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center"
+           style="background: url('https://images.unsplash.com/photo-1555244162-803834f70033?w=1600&q=80') center/cover no-repeat;">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
+      <p class="uppercase tracking-widest text-sm mb-4" style="color:var(--gold)">Premiumcateringtjänster</p>
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+        Extraordinära evenemang,<br/>oförglömliga smaker
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-10">
+        Från intima tillställningar till storslagna fester skapar vi kulinariska upplevelser
+        som lämnar ett bestående intryck.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/events.html" class="btn-gold px-8 py-3 rounded-full font-semibold text-base">Utforska evenemang</a>
+        <a href="/contact.html" class="border border-white text-white px-8 py-3 rounded-full font-semibold text-base hover:bg-white hover:text-gray-900 transition">Begär offert</a>
+      </div>
+    </div>
+    <!-- Scroll-indikator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Tjänster -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Våra tjänster</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Vi erbjuder ett komplett utbud av cateringlösningar anpassade för varje tillfälle.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-md text-center">
+        <div class="text-4xl mb-4">🍽️</div>
+        <h3 class="text-xl font-bold mb-2">Företagsevenemang</h3>
+        <p class="text-gray-500 text-sm">Professionella matupplevelser för konferenser, galakvällar och affärsluncher.</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-md text-center">
+        <div class="text-4xl mb-4">💍</div>
+        <h3 class="text-xl font-bold mb-2">Bröllop</h3>
+        <p class="text-gray-500 text-sm">Skräddarsydda menyer och felfri service för din allra viktigaste dag.</p>
+      </div>
+      <div class="card-hover bg-white rounded-2xl p-8 shadow-md text-center">
+        <div class="text-4xl mb-4">🎉</div>
+        <h3 class="text-xl font-bold mb-2">Privatfester</h3>
+        <p class="text-gray-500 text-sm">Födelsedagar, jubileer och firanden gjorda till extraordinära minnesstunder.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Varför välja oss -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="uppercase tracking-widest text-sm mb-3" style="color:var(--gold)">Varför välja oss</p>
+        <h2 class="text-4xl font-bold mb-6">Skapat med passion,<br/>serverat med perfektion.</h2>
+        <ul class="space-y-4 text-gray-600">
+          <li class="flex items-start gap-3"><span class="text-yellow-500 text-lg">✓</span> 15+ års kulinarisk excellens</li>
+          <li class="flex items-start gap-3"><span class="text-yellow-500 text-lg">✓</span> Lokalt sourcade, säsongsbetonade råvaror</li>
+          <li class="flex items-start gap-3"><span class="text-yellow-500 text-lg">✓</span> Dedikerad evenemangskoordinator för varje bokning</li>
+          <li class="flex items-start gap-3"><span class="text-yellow-500 text-lg">✓</span> Anpassade menyer för alla kostbehov</li>
+        </ul>
+        <a href="/about.html" class="btn-gold inline-block mt-8 px-7 py-3 rounded-full font-semibold">Läs mer</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-xl">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Kock som tillagar mat" class="w-full h-80 object-cover"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sidfot -->
+  <footer class="py-10 px-6 text-center text-sm text-gray-500" style="background:var(--dark); color:#aaa;">
+    <p class="mb-2 text-white font-semibold text-lg">Élite<span style="color:var(--gold)">Catering</span></p>
+    <p>© <span id="year"></span> Élite Catering. Alla rättigheter förbehållna.</p>
+    <div class="flex justify-center gap-6 mt-4">
+      <a href="/" class="hover:text-yellow-400">Hem</a>
+      <a href="/about.html" class="hover:text-yellow-400">Om oss</a>
+      <a href="/events.html" class="hover:text-yellow-400">Evenemang</a>
+      <a href="/contact.html" class="hover:text-yellow-400">Kontakt</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
